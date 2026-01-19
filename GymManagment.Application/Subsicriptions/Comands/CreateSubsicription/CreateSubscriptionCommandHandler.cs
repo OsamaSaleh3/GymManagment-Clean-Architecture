@@ -12,23 +12,23 @@ namespace GymManagment.Application.Subsicriptions.Comands.CreateSubsicription
     {
 
         private readonly ISubsicriptionRepository _subsicriptionRepository;
-        //private readonly IUnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSubscriptionCommandHandler(ISubsicriptionRepository subsicriptionRepository)
+        public CreateSubscriptionCommandHandler(ISubsicriptionRepository subsicriptionRepository, IUnitOfWork unitOfWork)
         {
             _subsicriptionRepository = subsicriptionRepository;
-           // _unitOfWork = unitOfWork;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<ErrorOr<Subscription>> Handle(CreateSubscriptionCommand request, CancellationToken cancellationToken)
         {
-            var subsicription = new Subscription
-            {
-                Id= Guid.NewGuid()
-            };
+            var subsicription = new Subscription(
+                subscriptionType: request.SubsicriptionType,
+                adminId: request.AdminId
+                );
 
             await _subsicriptionRepository.AddSubsicriptionAsync(subsicription);
-           // await _unitOfWork.CommitChangesAsync();
+           await _unitOfWork.CommitChangesAsync();
             return subsicription;
 
         }

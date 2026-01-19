@@ -7,6 +7,6 @@ using System.Text;
 
 namespace GymManagment.Application.Subsicriptions.Comands.CreateSubsicription
 {
-    public record CreateSubscriptionCommand(string SubsicriptionType,Guid AdminId):IRequest<ErrorOr<Subscription>>;
+    public record CreateSubscriptionCommand(SubscriptionType SubsicriptionType,Guid AdminId):IRequest<ErrorOr<Subscription>>;
 
 }

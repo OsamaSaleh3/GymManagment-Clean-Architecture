@@ -6,7 +6,7 @@ namespace GymManagment.Contracts.Subsicription;
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
 
-public enum SubsicriptionType
+public enum SubscriptionType
 {
     Free,
     Starter,

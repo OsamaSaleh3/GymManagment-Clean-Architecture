@@ -4,5 +4,5 @@ using System.Text;
 
 namespace GymManagment.Contracts.Subsicription;
 
-public record SubsicriptionResponse(Guid Id, SubsicriptionType subsicriptionType);
+public record SubscriptionResponse(Guid Id, SubscriptionType subsicriptionType);
 

@@ -8,5 +8,6 @@ namespace GymManagment.Application.Common.Interfaces
     public interface ISubsicriptionRepository
     {
         Task AddSubsicriptionAsync(Subscription subsicription);
+        Task<Subscription> GetByIdAsync(Guid subscriptionId);
     }
 }
