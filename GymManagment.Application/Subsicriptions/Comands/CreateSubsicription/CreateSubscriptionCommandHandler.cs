@@ -11,10 +11,10 @@ namespace GymManagment.Application.Subsicriptions.Comands.CreateSubsicription
     public class CreateSubscriptionCommandHandler : IRequestHandler<CreateSubscriptionCommand, ErrorOr<Subscription>>
     {
 
-        private readonly ISubsicriptionRepository _subsicriptionRepository;
+        private readonly ISubsicriptionsRepository _subsicriptionRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public CreateSubscriptionCommandHandler(ISubsicriptionRepository subsicriptionRepository, IUnitOfWork unitOfWork)
+        public CreateSubscriptionCommandHandler(ISubsicriptionsRepository subsicriptionRepository, IUnitOfWork unitOfWork)
         {
             _subsicriptionRepository = subsicriptionRepository;
             _unitOfWork = unitOfWork;

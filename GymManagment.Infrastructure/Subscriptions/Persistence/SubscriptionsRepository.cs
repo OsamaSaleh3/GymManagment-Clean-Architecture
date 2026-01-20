@@ -7,11 +7,11 @@ using System.Text;
 
 namespace GymManagment.Infrastructure.Subscriptions.Persistence
 {
-    public class SubscriptionRepository : ISubsicriptionRepository
+    public class SubscriptionsRepository : ISubsicriptionsRepository
     {
         private readonly GymManagmentDbContext _dbContext;
 
-        public SubscriptionRepository(GymManagmentDbContext dbContext)
+        public SubscriptionsRepository(GymManagmentDbContext dbContext)
         {
             _dbContext = dbContext;
         }
@@ -20,9 +20,19 @@ namespace GymManagment.Infrastructure.Subscriptions.Persistence
             await _dbContext.subscriptions.AddAsync(subsicription);
         }
 
+        public Task<bool> ExistsAsync(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<Subscription?>GetByIdAsync(Guid subscriptionId)
         {
             return await _dbContext.subscriptions.FindAsync(subscriptionId);
+        }
+
+        public Task UpdateAsync(Subscription subscription)
+        {
+            throw new NotImplementedException();
         }
     }
 }

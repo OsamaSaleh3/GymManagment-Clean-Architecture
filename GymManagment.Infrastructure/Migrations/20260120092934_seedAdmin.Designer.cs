@@ -4,6 +4,7 @@ using GymManagment.Infrastructure.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymManagment.Infrastructure.Migrations
 {
     [DbContext(typeof(GymManagmentDbContext))]
-    partial class GymManagmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260120092934_seedAdmin")]
+    partial class seedAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,37 +43,6 @@ namespace GymManagment.Infrastructure.Migrations
                         {
                             Id = new Guid("2150e333-8fdc-42a3-9474-1a3956d46de8")
                         });
-                });
-
-            modelBuilder.Entity("GymManagment.Domain.Gyms.Gym", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<Guid>("SubscriptionId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("_maxRooms")
-                        .HasColumnType("int")
-                        .HasColumnName("MaxRooms");
-
-                    b.Property<string>("_roomIds")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("RoomIds");
-
-                    b.Property<string>("_trainerIds")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("TrainerIds");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Gym");
                 });
 
             modelBuilder.Entity("GymManagment.Domain.Subscriptions.Subscription", b =>
