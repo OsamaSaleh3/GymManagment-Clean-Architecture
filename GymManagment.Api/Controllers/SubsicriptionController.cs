@@ -10,7 +10,7 @@ namespace GymManagment.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class SubsicriptionController : ControllerBase
+    public class SubsicriptionController : ApiController
     {
 
         private readonly ISender _mediator;

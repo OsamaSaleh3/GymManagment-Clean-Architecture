@@ -1,4 +1,5 @@
 ﻿using ErrorOr;
+using GymManagment.Domain.Admins;
 using GymManagment.Domain.Gyms;
 using Throw;
 
@@ -12,12 +13,17 @@ namespace GymManagment.Domain.Subscriptions
         public SubscriptionType SubscriptionType { get; private set; }
         private readonly Guid _adminId;
 
-        public Subscription(SubscriptionType subscriptionType, Guid adminId, Guid? id = null)
+        public Subscription(
+        SubscriptionType subscriptionType,
+        Guid adminId,
+        Guid? id = null)
         {
-            Id = id??Guid.NewGuid();
             SubscriptionType = subscriptionType;
             _adminId = adminId;
+            Id = id ?? Guid.NewGuid();
+            _maxGyms = GetMaxGyms();
         }
+
 
         public ErrorOr<Success> AddGym(Gym gym)
         {

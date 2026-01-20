@@ -4,6 +4,7 @@ using GymManagment.Infrastructure.Common.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GymManagment.Infrastructure.Migrations
 {
     [DbContext(typeof(GymManagmentDbContext))]
-    partial class GymManagmentDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260120123704_AddDbSet")]
+    partial class AddDbSet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -85,15 +88,6 @@ namespace GymManagment.Infrastructure.Migrations
                     b.Property<Guid>("_adminId")
                         .HasColumnType("uniqueidentifier")
                         .HasColumnName("AdminId");
-
-                    b.Property<string>("_gymIds")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("GymIds");
-
-                    b.Property<int>("_maxGyms")
-                        .HasColumnType("int")
-                        .HasColumnName("MaxGyms");
 
                     b.HasKey("Id");
 

@@ -1,6 +1,7 @@
 ﻿using GymManagment.Application.Common.Interfaces;
 using GymManagment.Domain.Gyms;
 using GymManagment.Infrastructure.Common.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,29 +17,45 @@ namespace GymManagment.Infrastructure.Gyms.Persistence
             _dbContext = dbContext;
         }
 
-        public Task AddGymAsync(Gym gym)
+        public async Task AddGymAsync(Gym gym)
         {
-            throw new NotImplementedException();
+            await _dbContext.Gyms.AddAsync(gym);
         }
 
-        public Task<Gym?> GetByIdAsync(Guid id)
+        public async Task<Gym?> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Gyms.FirstOrDefaultAsync(g => g.Id == id);
         }
 
-        public Task<List<Gym>> ListBySubscriptionIdAsync(Guid subscriptionId)
+        public async Task<List<Gym>> ListBySubscriptionIdAsync(Guid subscriptionId)
         {
-            throw new NotImplementedException();
+            return await _dbContext.Gyms
+                .Where(g => g.SubscriptionId == subscriptionId)
+                .ToListAsync();
         }
 
         public Task RemoveGymAsync(Gym gym)
         {
-            throw new NotImplementedException();
+            _dbContext.Gyms.Remove(gym);
+            return Task.CompletedTask;
+        }
+
+        public Task RemoveRangeAsync(List<Gym> gyms)
+        {
+            _dbContext.RemoveRange(gyms);
+
+            return Task.CompletedTask;
         }
 
         public Task UpdateGymAsync(Gym gym)
         {
-            throw new NotImplementedException();
+             _dbContext.Update(gym);
+            return Task.CompletedTask;
+        }
+
+        public async Task<bool> ExistsAsync(Guid id)
+        {
+            return await _dbContext.Gyms.AsNoTracking().AnyAsync(gym => gym.Id == id);
         }
     }
 }

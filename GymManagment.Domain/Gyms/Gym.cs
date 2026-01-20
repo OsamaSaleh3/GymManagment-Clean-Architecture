@@ -22,7 +22,7 @@ namespace GymManagment.Domain.Gyms
             Name = name;
             _maxRooms = maxRooms;
             SubscriptionId = subscriptionId;
-            id=id??Guid.NewGuid();
+            Id=id??Guid.NewGuid();
         }
 
         public ErrorOr<Success>AddRoom(Room room)

@@ -20,14 +20,14 @@ namespace GymManagment.Application.Gyms.Commands.DeleteGym
             _subscriptionReposiory = subscriptionReposiory;
         }
 
-        public async Task<ErrorOr<Deleted>> Handle(DeleteGymCommand request, CancellationToken cancellationToken)
+        public async Task<ErrorOr<Deleted>> Handle(DeleteGymCommand Command, CancellationToken cancellationToken)
         {
-            var gym=await _gymRepository.GetByIdAsync(request.GymId);
+            var gym=await _gymRepository.GetByIdAsync(Command.GymId);
             if(gym is null)
             {
                 return Error.NotFound(description: "Gym not found");
             }
-            var subscription = await _subscriptionReposiory.GetByIdAsync(gym.SubscriptionId);
+            var subscription = await _subscriptionReposiory.GetByIdAsync(Command.SubscriptionId);
             if (subscription is null)
             {
                 return Error.NotFound(description: "Subscription not found");

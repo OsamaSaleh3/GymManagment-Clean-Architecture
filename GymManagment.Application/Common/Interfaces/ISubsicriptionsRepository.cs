@@ -11,7 +11,9 @@ namespace GymManagment.Application.Common.Interfaces
         Task<Subscription> GetByIdAsync(Guid subscriptionId);
         Task UpdateAsync(Subscription subscription);
         Task<bool> ExistsAsync(Guid id);
-
+        Task<Subscription?> GetByAdminIdAsync(Guid adminId);
+        Task RemoveSubscriptionAsync(Subscription subscription);
+        Task<List<Subscription>> ListAsync();
 
     }
 }

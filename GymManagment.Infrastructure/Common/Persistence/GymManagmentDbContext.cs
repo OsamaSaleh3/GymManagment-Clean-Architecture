@@ -1,4 +1,5 @@
 ﻿using GymManagment.Application.Common.Interfaces;
+using GymManagment.Domain.Gyms;
 using GymManagment.Domain.Subscriptions;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,8 @@ namespace GymManagment.Infrastructure.Common.Persistence
 {
     public class GymManagmentDbContext : DbContext, IUnitOfWork
     {
-        public DbSet<Subscription> subscriptions { get; set; } = null!;
+        public DbSet<Subscription> Subscriptions { get; set; } = null!;
+        public DbSet<Gym> Gyms { get; set; } = null!;
 
         public GymManagmentDbContext(DbContextOptions options) : base(options)
         {
