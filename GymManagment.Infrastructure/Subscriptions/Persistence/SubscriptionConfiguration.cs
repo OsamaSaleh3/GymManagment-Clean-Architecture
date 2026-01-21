@@ -14,24 +14,22 @@ namespace GymManagment.Infrastructure.Subscriptions.Persistence
         {
             builder.HasKey(s => s.Id);
 
-            builder.Property(s => s.Id)
-                .ValueGeneratedNever();
+        builder.Property(s => s.Id)
+            .ValueGeneratedNever();
 
-            builder.Property("_maxGyms")
-                .HasColumnName("MaxGyms");
+        builder.Property("_maxGyms")
+            .HasColumnName("MaxGyms");
 
+        builder.Property(s => s.AdminId);
 
-            builder.Property("_adminId")
-                .HasColumnName("AdminId");
-
-            builder.Property(s => s.SubscriptionType)
-                .HasConversion(
+        builder.Property(s => s.SubscriptionType)
+            .HasConversion(
                 subscriptionType => subscriptionType.Name,
-                value => SubscriptionType.FromName(value, false));
+                value => SubscriptionType.FromName(value));
 
-            builder.Property<List<Guid>>("_gymIds")
-                .HasColumnName("GymIds")
-                .HasListOfIdsConverter();
+        builder.Property<List<Guid>>("_gymIds")
+            .HasColumnName("GymIds")
+            .HasListOfIdsConverter();
 
         }
     }

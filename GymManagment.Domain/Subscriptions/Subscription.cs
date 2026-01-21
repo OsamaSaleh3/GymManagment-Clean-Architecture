@@ -11,7 +11,7 @@ namespace GymManagment.Domain.Subscriptions
         private readonly int _maxGyms;
         public Guid Id { get; private set; }
         public SubscriptionType SubscriptionType { get; private set; }
-        private readonly Guid _adminId;
+        public Guid AdminId { get; }
 
         public Subscription(
         SubscriptionType subscriptionType,
@@ -19,7 +19,7 @@ namespace GymManagment.Domain.Subscriptions
         Guid? id = null)
         {
             SubscriptionType = subscriptionType;
-            _adminId = adminId;
+            AdminId = adminId;
             Id = id ?? Guid.NewGuid();
             _maxGyms = GetMaxGyms();
         }
