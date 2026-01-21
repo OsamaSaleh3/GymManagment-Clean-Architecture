@@ -8,7 +8,7 @@ using System.Text;
 
 namespace GymManagment.Infrastructure.Subscriptions.Persistence
 {
-    public class SubscriptionsRepository : ISubsicriptionsRepository
+    public class SubscriptionsRepository : ISubscriptionsRepository
     {
         private readonly GymManagmentDbContext _dbContext;
 

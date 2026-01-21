@@ -19,7 +19,7 @@ namespace GymManagment.Infrastructure
             services.AddDbContext<GymManagmentDbContext>(options => options.UseSqlServer("Server=OSAMA-ALMAHSERE;Database=GymManagment;Trusted_Connection=True;TrustServerCertificate=True;"));
 
             services.AddScoped<IAdminsRepository, AdminsRepository>();
-            services.AddScoped<ISubsicriptionsRepository, SubscriptionsRepository>();
+            services.AddScoped<ISubscriptionsRepository, SubscriptionsRepository>();
             services.AddScoped<IGymsRepository, GymsRepository>();
             services.AddScoped<IUnitOfWork>(serviceProvider=>serviceProvider.GetRequiredService<GymManagmentDbContext>());
 

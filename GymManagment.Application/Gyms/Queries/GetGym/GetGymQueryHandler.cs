@@ -12,9 +12,9 @@ namespace GymManagment.Application.Gyms.Queries.GetGym
     public class GetGymQueryHandler : IRequestHandler<GetGymQuery, ErrorOr<Gym>>
     {
         private readonly IGymsRepository _gymRepository;
-        private readonly ISubsicriptionsRepository _subscriptionRepository;
+        private readonly ISubscriptionsRepository _subscriptionRepository;
 
-        public GetGymQueryHandler(ISubsicriptionsRepository subscriptionRepository, IGymsRepository gymRepository)
+        public GetGymQueryHandler(ISubscriptionsRepository subscriptionRepository, IGymsRepository gymRepository)
         {
             _subscriptionRepository = subscriptionRepository;
             _gymRepository = gymRepository;

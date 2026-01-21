@@ -9,10 +9,10 @@ public class DeleteSubscriptionCommandHandler : IRequestHandler<DeleteSubscripti
 {
 
     private readonly IAdminsRepository _adminsRepository;
-    private readonly ISubsicriptionsRepository _subscriptionsRepository;
+    private readonly ISubscriptionsRepository _subscriptionsRepository;
     private readonly IUnitOfWork _unitOfWork;
     private readonly IGymsRepository _gymsRepository;
-    public DeleteSubscriptionCommandHandler(IAdminsRepository adminsRepository, ISubsicriptionsRepository subscriptionsRepository, IUnitOfWork unitOfWork, IGymsRepository gymsRepository)
+    public DeleteSubscriptionCommandHandler(IAdminsRepository adminsRepository, ISubscriptionsRepository subscriptionsRepository, IUnitOfWork unitOfWork, IGymsRepository gymsRepository)
     {
        _adminsRepository = adminsRepository;
        _subscriptionsRepository = subscriptionsRepository;

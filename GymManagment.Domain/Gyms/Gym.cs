@@ -37,7 +37,7 @@ namespace GymManagment.Domain.Gyms
             return Result.Success;
         }
 
-        bool HasRoom(Guid roomId)
+        public bool HasRoom(Guid roomId)
         {
             return _roomIds.Contains(roomId);
         }

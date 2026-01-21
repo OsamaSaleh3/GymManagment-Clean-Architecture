@@ -10,9 +10,9 @@ namespace GymManagment.Application.Subsicriptions.Queries.GetSubscription
 {
     public class GetSubscriptionQueryHandler : IRequestHandler<GetSubscriptionQuery, ErrorOr<Subscription>>
     {
-        private readonly ISubsicriptionsRepository _subsicriptionRepository;
+        private readonly ISubscriptionsRepository _subsicriptionRepository;
 
-        public GetSubscriptionQueryHandler(ISubsicriptionsRepository subsicriptionRepository)
+        public GetSubscriptionQueryHandler(ISubscriptionsRepository subsicriptionRepository)
         {
             _subsicriptionRepository = subsicriptionRepository;
         }

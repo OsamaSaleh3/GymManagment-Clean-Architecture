@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GymManagment.Application.Common.Interfaces
 {
-    public interface ISubsicriptionsRepository
+    public interface ISubscriptionsRepository
     {
         Task AddSubsicriptionAsync(Subscription subsicription);
         Task<Subscription> GetByIdAsync(Guid subscriptionId);

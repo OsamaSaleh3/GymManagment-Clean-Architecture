@@ -9,11 +9,11 @@ namespace GymManagment.Application.Gyms.Commands.DeleteGym
 {
     public class DeleteGymCommandHandler : IRequestHandler<DeleteGymCommand, ErrorOr<Deleted>>
     {
-        private readonly ISubsicriptionsRepository _subscriptionReposiory;
+        private readonly ISubscriptionsRepository _subscriptionReposiory;
         private readonly IGymsRepository _gymRepository;
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteGymCommandHandler(IUnitOfWork unitOfWork, IGymsRepository gymRepository, ISubsicriptionsRepository subscriptionReposiory)
+        public DeleteGymCommandHandler(IUnitOfWork unitOfWork, IGymsRepository gymRepository, ISubscriptionsRepository subscriptionReposiory)
         {
             _unitOfWork = unitOfWork;
             _gymRepository = gymRepository;

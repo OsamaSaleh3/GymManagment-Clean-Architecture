@@ -10,10 +10,10 @@ namespace GymManagment.Application.Gyms.Queries.ListGyms
 {
     public class ListGymQueryHandlerL : IRequestHandler<ListGymQuery, ErrorOr<List<Gym>>>
     {
-        private readonly ISubsicriptionsRepository _subscriptionRepository;
+        private readonly ISubscriptionsRepository _subscriptionRepository;
         private readonly IGymsRepository _gymRepository;
 
-        public ListGymQueryHandlerL(ISubsicriptionsRepository subscriptionRepository, IGymsRepository gymRepository)
+        public ListGymQueryHandlerL(ISubscriptionsRepository subscriptionRepository, IGymsRepository gymRepository)
         {
             _subscriptionRepository = subscriptionRepository;
             _gymRepository = gymRepository;
