@@ -14,7 +14,7 @@ namespace GymManagment.Domain.Gyms
 
         public readonly List<Guid> _roomIds = [];
         public readonly List<Guid> _trainerIds = [];
-        public string Name { get; init; }
+        public string Name { get; init; } = null!;
         public Guid SubscriptionId { get; init; }
 
         public Gym(string name,int maxRooms,Guid subscriptionId,Guid? id = null)

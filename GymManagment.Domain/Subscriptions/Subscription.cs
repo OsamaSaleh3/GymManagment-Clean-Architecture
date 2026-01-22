@@ -10,7 +10,7 @@ namespace GymManagment.Domain.Subscriptions
         private readonly List<Guid> _gymIds = [];
         private readonly int _maxGyms;
         public Guid Id { get; private set; }
-        public SubscriptionType SubscriptionType { get; private set; }
+        public SubscriptionType SubscriptionType { get; private set; } = null!;
         public Guid AdminId { get; }
 
         public Subscription(

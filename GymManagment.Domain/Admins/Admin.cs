@@ -8,7 +8,7 @@ namespace GymManagment.Domain.Admins
 {
     public class Admin
     {
-        public Guid UserId { get; }
+        public Guid UserId { get; private set; }
         public Guid? SubscriptionId { get;private set; }
         public Guid Id { get; private set; }
 

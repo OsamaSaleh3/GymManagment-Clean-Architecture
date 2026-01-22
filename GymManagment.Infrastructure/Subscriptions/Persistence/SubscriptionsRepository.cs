@@ -33,9 +33,9 @@ namespace GymManagment.Infrastructure.Subscriptions.Persistence
             throw new NotImplementedException();
         }
 
-        public async Task<Subscription?>GetByIdAsync(Guid subscriptionId)
+        public async Task<Subscription?> GetByIdAsync(Guid id)
         {
-            return await _dbContext.Subscriptions.FindAsync(subscriptionId);
+            return await _dbContext.Subscriptions.FirstOrDefaultAsync(subscription => subscription.Id == id);
         }
 
         public async Task<List<Subscription>> ListAsync()
